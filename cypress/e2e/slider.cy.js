@@ -16,3 +16,19 @@ describe('Swiper Gallery Test', function () {
     cy.get('.swiper-slide-active').should('contain', 'Paris');
   });
 });
+
+describe('Swiper Gallery Test', function () {
+  if('Checks if first slide contains "Rome" and "Italy", second "London" and "United Kingdom" and third "Paris" and "France"', function () {
+    cy.visit('http://localhost:3000');
+    cy.get('.swiper-slide-active').should('contain', 'Rome');
+    cy.get('.card-description').should('contain', 'Italy');
+    cy.get('.swiper-button-next').click();
+    cy.wait(2000);
+    cy.get('.swiper-slide-active').should('contain', 'London');
+    cy.get('.card-description').should('contain', 'United Kingdom');
+    cy.get('.swiper-button-next').click({ force: true });
+    cy.wait(2000);
+    cy.get('.swiper-slide-active').should('contain', 'Paris');
+    cy.get('.card-description').should('contain', 'France');
+  });
+});
